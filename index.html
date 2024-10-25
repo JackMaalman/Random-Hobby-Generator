@@ -1,0 +1,222 @@
+<html>
+<head>
+<title>Random Hobby Generator</title>
+  <style>
+      body {
+          border: 6px double green
+          }
+    /* Global styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: brown /* Soft pink background */
+    }
+
+    /* Button styles */
+    button {
+      background-color: #4CAF50; /* Green button */
+      color: #fff; /* White text */
+      padding: 10px 850px;
+      border: none;
+      border-radius: 60px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #3e8e41; /* Darker green on hover */
+    }
+
+    /* Text styles */
+    #name-display {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .knop-container {
+    margin-top: -60px;
+    margin-left: 30px;
+    text-align: left;
+}
+  </style>
+    <link rel="icon" type="image/x-icon" href="hobby.jpeg">
+</head>
+<body>
+    <h1>genereer een hobby</h1>
+  <div class="container">
+    <button id="generate-name">Generate Name</button>
+    <div id="name-display"></div>
+  </div>
+<img src="hobby.jpeg" alt="goed">
+ <p style="position: absolute; bottom: 0; left: 50%; transform: 
+<img src="hoi.png" alt="baby" hspace=1400>
+     
+    
+  <script>
+     const names = [
+    "Lezen",
+    "Schilderen",
+    "Voetbal",
+    "Fotografie",
+    "Zwemmen",
+    "Tuinieren",
+    "Hardlopen",
+    "Koken",
+    "Paardrijden",
+    "Wandelen",
+    "Programmeren",
+    "Bordspellen",
+    "Gitaar spelen",
+    "Dansen",
+    "Reizen",
+    "Bakken",
+    "Fietsen",
+    "Piano spelen",
+    "Tekenen",
+    "Kamperen",
+    "Zingen",
+    "Yoga",
+    "Vissen",
+    "Breien",
+    "Klimmen",
+    "Modelbouwen",
+    "Houtbewerking",
+    "Fotobewerking",
+    "Acteren",
+    "Schaatsen",
+    "Dichten",
+    "Honkbal",
+    "Schaken",
+    "Filmmaken",
+    "Boulderen",
+    "Karate",
+    "Tennis",
+    "Schrijven",
+    "Lego bouwen",
+    "Vliegen met drones",
+    "Muziek luisteren",
+    "Naaien",
+    "Skiën",
+    "Modeltreinen",
+    "Boksen",
+    "Tuinieren",
+    "Zeilen",
+    "Haken",
+    "Gamen",
+    "Kunstschaatsen",
+    "Basketbal",
+    "Motorrijden",
+    "Tatoeëren",
+    "Origami",
+    "Astronomie",
+    "Fotografie ontwikkelen",
+    "Kalligrafie",
+    "Pottenbakken",
+    "Snorkelen",
+    "Surfen",
+    "Jongleren",
+    "Boogschieten",
+    "Tafeltennis",
+    "Wijn maken",
+    "Bier brouwen",
+    "Robots bouwen",
+    "Drone racen",
+    "Vogelspotten",
+    "Astrofotografie",
+    "Lange afstand wandelen",
+    "Kickboksen",
+    "Mode ontwerpen",
+    "Kleed maken",
+    "Videobewerking",
+    "Podcast maken",
+    "Kitesurfen",
+    "Golfen",
+    "Karten",
+    "Luchtdruk schieten",
+    "Terrarium bouwen",
+    "Aquascaping",
+    "Sieraden maken",
+    "Modelvliegtuigen bouwen",
+    "Graffiti",
+    "3D printen",
+    "Herboristen",
+    "Stoomtreinen spotten",
+    "Speervissen",
+    "Climbing",
+    "Vlotten bouwen",
+    "Kampvuur koken",
+    "Fossielen zoeken",
+    "Knopen",
+    "Leren smeden",
+    "Kunstverzamelen",
+    "Genezende kruiden",
+    "Tapdansen",
+    "Bridge",
+    "Voedselfotografie",
+    "Historisch zwaardvechten",
+    "Bodypainting",
+    "Escape rooms oplossen",
+    "Cosplay",
+    "Fotomozaïeken maken",
+    "Stand-up comedy",
+    "Vogelhuisjes bouwen",
+    "Geocaching",
+    "Speksteen snijden",
+    "Puzzels maken",
+    "Messen slijpen",
+    "Imkeren",
+    "Houtskooltekeningen maken",
+    "Stripverhalen schrijven",
+    "Taarten decoreren",
+    "Kleuren voor volwassenen",
+    "Klimmen",
+    "Leren van nieuwe talen",
+    "Kaarsen maken",
+    "Paragliden",
+    "Padel",
+    "Freerunning",
+    "Parkour",
+    "Krantenknipsels verzamelen",
+    "Koeien melken",
+    "Papieren vliegtuigen vouwen",
+    "Aquarel schilderen",
+    "Krachtsport",
+    "Lasersnijden",
+    "Schaduwpoppenspel",
+    "Polaroidfotografie",
+    "Kamperen met de fiets",
+    "Foodtrucks bezoeken",
+    "Silent disco's organiseren",
+    "Gedichten voordragen",
+    "Karaoke",
+    "Minigolf",
+    "Street photography",
+    "Skaten",
+    "Rollerschaatsen",
+    "Sneeuwscooteren",
+    "Ice carving",
+    "Vliegtuigspotten",
+    "Bierproeverijen",
+    "Whiskyproeverijen",
+    "Street art maken",
+    "Vlog maken",
+    "Luchtfotografie",
+    "Salsadansen",
+    "Sushi maken",
+    "Quilten",
+    "Trommelen",
+    "Hindernisbanen bouwen",
+    "Wijnproeverijen",
+    "Crossfit",
+      // Add more names here!
+    ];
+
+    const nameDisplay = document.getElementById("name-display");
+    const generateButton = document.getElementById("generate-name");
+
+    generateButton.addEventListener("click", () => {
+      const randomIndex = Math.floor(Math.random() * names.length);
+      const randomName = names[randomIndex];
+      nameDisplay.textContent = `Uw nieuwe hobby is   ${randomName}!`;
+    });// Same JavaScript code as before
+  </script>
+</body>
+</html>
